@@ -11,3 +11,4 @@ https://docs.google.com/spreadsheets/d/1Ux_UCXRabUmUjpGsEVRmC91qKwjcOyPE-PYDEp1N
 
 ## 使用予定Gem
 * carrierwave
+* geocoder /geokit-rails
