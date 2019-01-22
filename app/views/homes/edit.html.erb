@@ -1,0 +1,47 @@
+<center>
+  <header>
+    <h1>Homes Edit/h1>
+  </header>
+  <%= form_with(model: @home, local: true) do |form| %>
+    <% if @home.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @home.errors.count %>件のエラーがあります。</h2>
+        <ul>
+        <% @home.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    
+    <p class="user_label"><%= form.label :家名 %></p>
+    <p class="user_input"><%= form.text_field :home %></p>
+
+    <p class="user_label"><%= form.label :敷金 %></p>
+    <p class="user_input"><%= form.text_field :sikikinn %></p>
+
+    <p class="user_label"><%= form.label :礼金 %></p>
+    <p class="user_input"><%= form.text_field :reikinn %></p>
+    
+    <p class="user_label"><%= form.label :面積 %></p>
+    <p class="user_input"><%= form.text_field :space %></p>
+    
+    <p class="user_label"><%= form.label :地域 %></p>
+    <p class="user_input"><%= form.text_field :area %></p>
+    
+    <p class="user_label"><%= form.label :家賃 %></p>
+    <p class="user_input"><%= form.text_field :price %></p>
+    
+    <p class="user_label"><%= form.label :所在地 %></p>
+    <p class="user_input"><%= form.text_field :address %></p>
+    
+    <p class="user_label"><%= form.label :LDK %></p>
+    <p class="user_input"><%= form.text_field :ldk %></p>
+    
+    <p class="user_label"><%= form.label :イメージ%></p>
+    <p class="user_image"><%= form.file_field :image %></p>
+
+    <p class="submit"><%= form.submit %></p>
+  <% end %>
+</center>

@@ -1,0 +1,45 @@
+<center>
+  <%= form_with(model: @home, url: homes_path, local: true) do |form| %>
+    <%= form.hidden_field :home %>
+    <%= form.hidden_field :sikikinn %>
+    <%= form.hidden_field :reikinn %>
+    <%= form.hidden_field :space %>
+    <%= form.hidden_field :image %>
+    <%= form.hidden_field :area %>
+    <%= form.hidden_field :price %>
+    <%= form.hidden_field :address %>
+    <%= form.hidden_field :image %>
+    <%= form.hidden_field :ldk %>
+
+    <p>不動産業者: <%= @home.user.name %></p>
+    <p>物件名: <%= @home.home %></p>
+    <p>敷金: <%= @home.sikikinn %></p>
+    <p>礼金: <%= @home.reikinn %></p>
+    <p>面積: <%= @home.space %></p>
+    <p>地域: <%= @home.area %></p>
+    <p>家賃: <%= @home.price %></p>
+    <p>住所: <%= @home.address %></p>
+    <p>問取り: <%= @home.ldk %></p>
+    <p>
+      image:
+      <%= image_tag(@home.image.url) if @home.image.url%>
+      <%= form.hidden_field :image_cache %>
+    </p>
+    <p class="submit"><%= form.submit  "投稿する" %></p>
+  <% end %>
+ 
+  <%= form_with(model: @home, url: new_home_path, local: true, method: 'get') do |form| %>
+    <%= form.hidden_field :home %>
+    <%= form.hidden_field :sikikinn %>
+    <%= form.hidden_field :reikinn %>
+    <%= form.hidden_field :space %>
+    <%= form.hidden_field :image_cache %>
+    <%= form.hidden_field :area %>
+    <%= form.hidden_field :price %>
+    <%= form.hidden_field :address %>
+    <%= form.hidden_field :image %>
+    <%= form.hidden_field :ldk %>
+    
+    <p class="submit"><%= form.submit "もどる", name: 'back' %></p>
+  <% end %>
+</center>

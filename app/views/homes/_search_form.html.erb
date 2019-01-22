@@ -1,0 +1,32 @@
+<%= search_form_for(@q, url:homes_path) do |f| %>
+  <div class="search_item">
+    <%= f.label :物件名 %>
+    <%= f.text_field :home_cont %>
+  </div>
+  
+  <div class="search_item">
+    <%= f.label :家賃 %>
+    <%= f.number_field :price_gteq %>
+  </div>
+  <div class="search_item">
+    <%= f.label :~ %>
+    <%= f.number_field :price_lteq %>
+  </div>
+  
+  <div class="search_item">
+    <%= f.label :面積 %>
+    <%= f.number_field :space_gteq %>
+  </div>
+  <div class="search_item">
+    <%= f.label :~ %>
+    <%= f.number_field :space_lteq %>
+  </div>
+  <div class="search_item">
+    <%= f.label :住所 %><br>
+    <%= f.text_field :address_cont %>
+  </div>
+  <div class="search_button col-md-6 col-md-offset-3">
+    <%= f.submit %>
+  </div>
+<% end %>
+
