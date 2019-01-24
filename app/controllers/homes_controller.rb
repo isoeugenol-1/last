@@ -21,7 +21,6 @@ class HomesController < ApplicationController
     @home = Home.new(home_params)
     @home.user_id = current_user.id
     if @home.save
-      ContactMailer.contact_mail(current_user,@home).deliver
       redirect_to homes_path
     else
       render 'new'
