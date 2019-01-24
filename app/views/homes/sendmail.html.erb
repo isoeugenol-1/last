@@ -1,0 +1,19 @@
+<center>
+  <header>
+    <h1>お問い合わせ</h1>
+  </header>
+  <%= form_tag homes_send_mail_path, method: :get do %>
+  <div>
+    <p class="user_label">Title</p>
+    <p class="user_input"><%= text_field_tag :title %></p>
+  </div>
+  
+  <div>
+    <p class="user_label">Content</p>
+    <p class="user_input"><%= text_area_tag :content %><br></p>
+  </div>
+  
+    <%= hidden_field_tag :post_id, @homes.id %>
+    <%= submit_tag 'send' %>
+  <% end %>
+</center>

@@ -1,17 +1,18 @@
 <header>
   <h1>Homesお気に入り一覧</h1>
 </header>
-<div class="col-xs-12 col-md-12">
-  <div class="col-xs-12 col-md-offset-2 col-md-3">home</div>
-  <div class="col-xs-12 col-md-3">home</div>
-  <div class="col-xs-12 col-md-3">home</div>
-  <div class="col-xs-12 col-md-12">
-    <% if logged_in? %>
-      <% @favorite.each do |favorite| %>
-      <div class="col-xs-6 col-md-offset-2 col-md-3"><%= favorite.home %></div>
-      <div class="col-xs-6 col-md-3"><%= favorite.sikikinn %></div>
-      <div class="col-xs-6 col-md-3"><%= image_tag favorite.image.url if favorite.image.url %></div>
+<div class="col-md-12">
+  <div class="row">
+    <% @favorite.each do |home| %>
+    <div type="button" class="home_list btn btn-default col-md-9 col-md-offset-3">
+      <%= link_to  home_path(home.id), class: "item_list" do %>
+        <div class="item col-md-3"><%= "不動産業者 : "+ home.user.name %></div>
+        <div class="item col-md-3"><%= "物件名 : "+ home.home %></div>
+        <div class="item col-md-3"><%= "家賃 : " + home.price.to_s %></div>
+        <div class="item_image col-md-3"><%= image_tag(home.image[0].url) if home.image[0].present? %></div>
+        <div class="item col-md-4"><%= "住所 : " + home.address %></div>
       <% end %>
+    </div>
     <% end %>
   </div>
 </div>

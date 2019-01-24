@@ -8,6 +8,7 @@
     <%= f.label :家賃 %>
     <%= f.number_field :price_gteq %>
   </div>
+  
   <div class="search_item">
     <%= f.label :~ %>
     <%= f.number_field :price_lteq %>
@@ -17,14 +18,27 @@
     <%= f.label :面積 %>
     <%= f.number_field :space_gteq %>
   </div>
+  
   <div class="search_item">
     <%= f.label :~ %>
     <%= f.number_field :space_lteq %>
   </div>
+  
   <div class="search_item">
-    <%= f.label :住所 %><br>
+    <%= f.label :住所 %>
     <%= f.text_field :address_cont %>
   </div>
+  
+  <div class="search_item">
+    <%= f.label :地域 %>
+    <%= f.text_field :area_cont %>
+  </div>
+  
+  <div class="search_item">
+    <%= f.label :問取り %>
+    <%= f.select :ldk_eq, options_for_select([['1R','1R'],['1K','1K'],['1DK','1DK'],['2LDK','2LDK'],['3LDK','3LDK']], @q.ldk) ,{include_blank: true},style: "width:174px" %>
+  </div>
+  
   <div class="search_button col-md-6 col-md-offset-3">
     <%= f.submit %>
   </div>

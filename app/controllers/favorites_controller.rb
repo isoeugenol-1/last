@@ -14,6 +14,7 @@ class FavoritesController < ApplicationController
   def index
     if logged_in?
       @favorite = current_user.favorite_homes.all
+      @home = Home.all
     end
   end
 end

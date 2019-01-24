@@ -6,13 +6,21 @@
       <h1>会員詳細画面</h1>
     <% end %>
   </header>
-  <p>name: <%= @user.name %></p>
-  <p>email: <%= @user.email %></p>
-  <p>
-    <strong>Image:</strong>
-    <%= image_tag(@user.image.url) if @user.image.url %>
-  </p>
+  <table>
+    <tr class="tr">
+      <th>name: </th>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr class="tr">
+      <th>email: </th>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr class="tr">
+      <th>Image: </th>
+      <td><%= image_tag(@user.image.url) if @user.image.url %></td>
+    </tr>
+  </table>
   
-  <%= link_to 'Edit', edit_user_path(@user) %>
-  <%= link_to 'favorite', favorites_path %>
+  <div type="button" class="btn btn-default"><%= link_to 'Edit', edit_user_path(@user) %></div>
+  <div type="button" class="btn btn-default"><%= link_to 'favorite', favorites_path %></div>
 </center>

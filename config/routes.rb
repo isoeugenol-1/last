@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "tops#index"
-  get '/homes/searchmap', to: "homes#searchmap"
-  #homes_map_path
+  get '/homes/sendmail', to: "homes#sendmail"
+  get '/homes/send_mail', to: "homes#send_mail"
   resources :homes do
     collection do
       post :confirm
@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   resources :favorites, only: [:index, :create, :destroy]
-    #mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  mount LetterOpenerWeb::Engine, at: "/letter_opener"
 end
