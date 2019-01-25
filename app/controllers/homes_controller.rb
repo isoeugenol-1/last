@@ -3,7 +3,6 @@ class HomesController < ApplicationController
   before_action :login_check, only: [:show, :edit, :new, :destroy, :update]
   before_action :current_check, only: [:destroy, :edit, :update]
   include ApplicationHelper
-
   def index
     @q = Home.search(params[:q])
     @home = @q.result(distinct: true)
@@ -56,13 +55,16 @@ class HomesController < ApplicationController
   end
   
   def sendmail
-    @homes = Home.find(params[:sendid])
+    @home = Home.near(params[:addressto],5) 
+    #@homes = Home.find(params[:sendid])
   end
   
   def send_mail 
+    @home = Home.near(params[:addressto],5) 
+    #"渋谷、東京"
     #@homes = params[:post_id]
     #ContactMailer.contact_mail(current_user,@homes,params[:title],params[:content]).deliver
-    redirect_to homes_path
+    redirect_to homes_send_mail_path
   end
   
   private

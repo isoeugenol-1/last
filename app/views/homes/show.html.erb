@@ -62,4 +62,5 @@
   <!--rails assets:precompile RAILS_ENV=production), data: { confirm: '本当に編集していいですか？' }-->
   <div type="button" class="btn btn-default"><%= link_to '削除', home_path(@home.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></div>
   <% end %>
+  <%= button_to 'Call Action', 'https://www.google.com/maps/place/'+@home.address, method: :get,form: {target: '_blank'} %>
 </center>

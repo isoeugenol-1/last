@@ -212,6 +212,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   faker
   geocoder
+  geokit
   geokit-rails
   gmaps4rails
   jbuilder (~> 2.5)
