@@ -18,19 +18,19 @@
     <p class="user_input"><%= form.text_field :home %></p>
 
     <p class="user_label"><%= form.label :敷金 %></p>
-    <p class="user_input"><%= form.text_field :sikikinn %></p>
+    <p class="user_input"><%= form.number_field :sikikinn , step: :any%></p>
 
     <p class="user_label"><%= form.label :礼金 %></p>
-    <p class="user_input"><%= form.text_field :reikinn %></p>
+    <p class="user_input"><%= form.number_field :reikinn, step: :any %></p>
     
     <p class="user_label"><%= form.label :面積 %></p>
-    <p class="user_input"><%= form.text_field :space %></p>
+    <p class="user_input"><%= form.number_field :space, step: :any %></p>
     
     <p class="user_label"><%= form.label :地域 %></p>
     <p class="user_input"><%= form.text_field :area %></p>
     
     <p class="user_label"><%= form.label :家賃 %></p>
-    <p class="user_input"><%= form.text_field :price %></p>
+    <p class="user_input"><%= form.number_field :price, step: :any %></p>
     
     <p class="user_label"><%= form.label :所在地 %></p>
     <p class="user_input"><%= form.text_field :address %></p>
