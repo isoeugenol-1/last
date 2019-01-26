@@ -1,10 +1,12 @@
 class Home < ApplicationRecord
-  validates :home, presence: true
+  validates :home, presence: true, uniqueness: true
   validates :space, presence: true
   validates :area, presence: true
   validates :price, presence: true
-  validates :address, presence: true
+  validates :address, presence: true, uniqueness: true
   validates :ldk, presence: true
+  validates :latitude, uniqueness: true
+  validates :longitude, uniqueness: true
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
   belongs_to :user
