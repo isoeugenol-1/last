@@ -4,7 +4,6 @@
 }
 html{
   position: relative;
-  margin:10px;
   background-color:#000;
   min-height: 100%;
 }
@@ -41,6 +40,7 @@ body{
 }
 h1{
   text-align:center;
+  margin-top:0px;
 }
 .btn-group{
   float:right;
