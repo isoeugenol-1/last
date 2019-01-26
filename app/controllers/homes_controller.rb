@@ -78,7 +78,7 @@ class HomesController < ApplicationController
   private
   
   def home_params
-    params.require(:home).permit(:home, :sikikinn, :reikinn, :space, {image: []}, :area, :price, :address, :ldk,:@curuser)
+    params.require(:home).permit(:home, :sikikinn, :reikinn, :space, {image: []}, :area, :price, :address, :ldk,:@curuser,:latitude,:longitude)
   end
   
   def set_home
