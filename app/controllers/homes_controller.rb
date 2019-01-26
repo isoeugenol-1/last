@@ -55,7 +55,7 @@ class HomesController < ApplicationController
   end
   
   def sendmail
-    @home = Home.near(params[:addressto],5) 
+    @home = Home.near(params[:addressto],params[:addresskm]) 
     #@homes = Home.find(params[:sendid])
   end
   
