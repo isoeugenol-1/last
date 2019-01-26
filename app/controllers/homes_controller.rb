@@ -62,9 +62,16 @@ class HomesController < ApplicationController
   def send_mail 
     @home = Home.near(params[:addressto],5) 
     #"渋谷、東京"
-    #@homes = params[:post_id]
+    
     #ContactMailer.contact_mail(current_user,@homes,params[:title],params[:content]).deliver
     redirect_to homes_send_mail_path
+  end
+  
+  def sendqes
+    @homes = Home.find(params[:sendid])
+    #@homes = params[:post_id]
+    #ContactMailer.contact_mail(current_user,@homes,params[:title],params[:content]).deliver
+    
   end
   
   private

@@ -57,7 +57,7 @@
     <% else %>
       <%= link_to 'お気に入りする', favorites_path(home_id: @home.id), method: :post, class: 'btn btn-primary' %>
     <% end %>
-    <div type="button" class="btn btn-default"><%= link_to "お問い合わせ", homes_sendmail_path(:sendid => @home.id) %></div>
+    <div type="button" class="btn btn-default"><%= link_to "お問い合わせ", homes_sendqes_path(:sendid => @home.id) %></div>
   <% else %>
   <div type="button" class="btn btn-default"><%= link_to "編集", edit_home_path(@home) %></div>
   <!--rails assets:precompile RAILS_ENV=production), data: { confirm: '本当に編集していいですか？' }-->
