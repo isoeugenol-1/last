@@ -6,22 +6,22 @@
   
   <div class="search_item">
     <%= f.label :家賃 %>
-    <%= f.number_field :price_gteq %>
+    <%= f.number_field :price_gteq , min: 0 %>
   </div>
   
   <div class="search_item">
     <%= f.label :~ %>
-    <%= f.number_field :price_lteq %>
+    <%= f.number_field :price_lteq, min: 0 %>
   </div>
   
   <div class="search_item">
     <%= f.label :面積 %>
-    <%= f.number_field :space_gteq %>
+    <%= f.number_field :space_gteq, min: 0 %>
   </div>
   
   <div class="search_item">
     <%= f.label :~ %>
-    <%= f.number_field :space_lteq %>
+    <%= f.number_field :space_lteq, min: 0 %>
   </div>
   
   <div class="search_item">

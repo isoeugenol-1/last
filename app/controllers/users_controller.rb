@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to homes_path
     else
-      render 'index'
+      redirect_to users_path
     end
   end
   
