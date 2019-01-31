@@ -2,6 +2,11 @@
   <header>
     <h1>Editing user</h1>
   </header>
+  <div class="errmsg">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+  </div>
   <%= form_with(model: @user, local: true) do |form| %>
 
     <p class="user_label"><%= form.label :name %></p>
