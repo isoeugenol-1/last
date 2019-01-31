@@ -2,8 +2,13 @@
   <header>
     <h1>Log in</h1>
   </header>
+  <div class="errmsg">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+  </div>
   <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-
+    
     <p class="user_label"><%= f.label :email %></p>
     <p class="user_input"><%= f.email_field :email %></p>
 
