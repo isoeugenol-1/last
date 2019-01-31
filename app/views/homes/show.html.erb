@@ -42,7 +42,6 @@
     </tr>
     <tr>
       <th>写真: </th>
-      
       <td>
         <%  @home.image.each do |image| %>
         <%= image_tag(image.url) if image.present? %>
@@ -53,15 +52,15 @@
 
   <% unless @home.user_id == current_user.id %>
     <% if @favorite.present? %>
-      <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+      <div type="button" class="kiqbutton btn btn-danger"><%= link_to 'お気に入り解除', favorite_path(id: @favorite.id), method: :delete %></div>
     <% else %>
-      <%= link_to 'お気に入りする', favorites_path(home_id: @home.id), method: :post, class: 'btn btn-primary' %>
+      <div type="button" class="kiqbutton btn btn-primary"><%= link_to 'お気に入りする', favorites_path(home_id: @home.id), method: :post %></div>
     <% end %>
-    <div type="button" class="btn btn-default"><%= link_to "お問い合わせ", homes_sendqes_path(:sendid => @home.id) %></div>
+    <div type="button" class="kiqbutton btn btn-default"><%= link_to "お問い合わせ", homes_sendqes_path(:sendid => @home.id) %></div>
   <% else %>
-  <div type="button" class="btn btn-default"><%= link_to "編集", edit_home_path(@home) %></div>
+  <div type="button" class="edbutton btn btn-default"><%= link_to "編集", edit_home_path(@home) %></div>
   <!--rails assets:precompile RAILS_ENV=production), data: { confirm: '本当に編集していいですか？' }-->
-  <div type="button" class="btn btn-default"><%= link_to '削除', home_path(@home.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></div>
+  <div type="button" class="edbutton btn btn-default"><%= link_to '削除', home_path(@home.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></div>
   <% end %>
   
 </center>

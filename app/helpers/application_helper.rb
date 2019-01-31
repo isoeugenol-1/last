@@ -13,9 +13,9 @@ module ApplicationHelper
   
   def choose_new_or_edit
     if action_name == 'new' || action_name == 'confirm'
-      homes_path
+      confirm_homes_path
     elsif action_name == 'edit'
-      homes_path
+      home_path
     end
   end
 end

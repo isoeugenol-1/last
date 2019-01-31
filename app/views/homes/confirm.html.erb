@@ -1,43 +1,80 @@
 <center>
+  <header>
+    <h1>Homes 投稿確認</h1>
+  </header>
   <%= form_with(model: @home, url: homes_path, local: true) do |form| %>
     <%= form.hidden_field :home %>
     <%= form.hidden_field :sikikinn %>
     <%= form.hidden_field :reikinn %>
     <%= form.hidden_field :space %>
-    <%= form.hidden_field :image %>
     <%= form.hidden_field :area %>
     <%= form.hidden_field :price %>
     <%= form.hidden_field :address %>
-    <%= form.hidden_field :image %>
     <%= form.hidden_field :ldk %>
+    
+    <%= form.hidden_field :image,multiple: true %>
 
-    <p>不動産業者: <%= @home.user.name %></p>
-    <p>物件名: <%= @home.home %></p>
-    <p>敷金: <%= @home.sikikinn %></p>
-    <p>礼金: <%= @home.reikinn %></p>
-    <p>面積: <%= @home.space %></p>
-    <p>地域: <%= @home.area %></p>
-    <p>家賃: <%= @home.price %></p>
-    <p>住所: <%= @home.address %></p>
-    <p>問取り: <%= @home.ldk %></p>
-    <p>
-      image:
-      <%= image_tag(@home.image.url) if @home.image.url%>
-      <%= form.hidden_field :image_cache %>
-    </p>
+    <table>
+    <tr class="tr">
+      <th>不動産業者: </th>
+      <td><%= current_user.name %></td>
+    </tr>
+    <tr>
+      <th>物件名: </th>
+      <td><%= @home.home %></td>
+    </tr>
+    <tr>
+      <th>敷金: </th>
+      <td><%= @home.sikikinn %></td>
+    </tr>
+    <tr>
+      <th>礼金: </th>
+      <td><%= @home.reikinn %></td>
+    </tr>
+    <tr>
+      <th>面積: </th>
+      <td><%= @home.space %></td>
+    </tr>
+    <tr>
+      <th>地域: </th>
+      <td><%= @home.area %></td>
+    </tr>
+    <tr>
+      <th>家賃: </th>
+      <td><%= @home.price %></td>
+    </tr>
+    <tr>
+      <th>住所: </th>
+      <td><%= @home.address %></td>
+      <td class="blackcolor"><%= button_to '地図から確認', 'https://www.google.com/maps/place/'+@home.address, method: :get,form: {target: '_blank'} %></td>
+    </tr>
+    <tr>
+      <th>問取り: </th>
+      <td><%= @home.ldk %></td>
+    </tr>
+    <tr>
+      <th>写真: </th>
+      <td>
+        <%  @home.image.each do |image| %>
+        <%= image_tag(image.url) if image.present? %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+
     <p class="submit"><%= form.submit  "投稿する" %></p>
   <% end %>
  
   <%= form_with(model: @home, url: new_home_path, local: true, method: 'get') do |form| %>
     <%= form.hidden_field :home %>
     <%= form.hidden_field :sikikinn %>
+    <%= form.hidden_field :sikikinn %>
     <%= form.hidden_field :reikinn %>
     <%= form.hidden_field :space %>
-    <%= form.hidden_field :image_cache %>
     <%= form.hidden_field :area %>
     <%= form.hidden_field :price %>
-    <%= form.hidden_field :address %>
-    <%= form.hidden_field :image %>
+    <%= form.hidden_field :image, { :multiple => true } %>
+
     <%= form.hidden_field :ldk %>
     
     <p class="submit"><%= form.submit "もどる", name: 'back' %></p>

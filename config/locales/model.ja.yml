@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      home: "Home"
+      user: "ユーザー"
+    attributes:
+      home:
+        home: "物件名"
+        sikikinn: "敷金"
+        reikinn: "礼金"
+        space: "面積"
+        area: "地域"
+        price: "家賃"
+        address: "住所"
+        ldk: "問取り"
+        image: "写真"
+      user:
+        name: "名前"
+        email: "メールアドレス"
+        current_password: "現在のパスワード"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"

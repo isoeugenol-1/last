@@ -4,14 +4,20 @@
 <div class="col-md-12">
   <div class="row">
     <% @favorite.each do |home| %>
-    <div type="button" class="home_list btn btn-default col-md-9 col-md-offset-3">
+    <div type="button" class="home_list btn btn-default col-md-6 col-md-offset-3">
       <%= link_to  home_path(home.id), class: "item_list" do %>
-        <div class="item col-md-3"><%= "不動産業者 : "+ home.user.name %></div>
-        <div class="item col-md-3"><%= "物件名 : "+ home.home %></div>
-        <div class="item col-md-3"><%= "家賃 : " + home.price.to_s %></div>
-        <div class="item_image col-md-3"><%= image_tag(home.image[0].url) if home.image[0].present? %></div>
-        <div class="item col-md-4"><%= "住所 : " + home.address %></div>
-      <% end %>
+            <div class="item col-md-4"><%= "不動産業者 : "+ home.user.name %></div>
+            <div class="item col-md-4"><%= "物件名 : "+ home.home %></div>
+            <div class="item_image col-md-4">
+              <% if home.image[0].present? %>
+                <%= image_tag(home.image[0].url) %>
+              <% else %>
+                No Image
+              <% end %>
+            </div>
+            <div class="item col-md-3"><%= "家賃 : " + home.price.to_s %></div>
+            <div class="item col-md-5"><%= "住所 : " + home.address %></div>
+          <% end %>
     </div>
     <% end %>
   </div>

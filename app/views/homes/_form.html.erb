@@ -15,7 +15,7 @@
     <% end %>
  
     <p class="user_label"><%= form.label :家名 %></p>
-    <p class="user_input"><%= form.text_field :home %></p>
+    <p class="user_input"><%= form.text_field :home, required: true %></p>
 
     <p class="user_label"><%= form.label :敷金 %></p>
     <p class="user_input"><%= form.number_field :sikikinn , step: :any%></p>
@@ -24,16 +24,16 @@
     <p class="user_input"><%= form.number_field :reikinn, step: :any %></p>
     
     <p class="user_label"><%= form.label :面積 %></p>
-    <p class="user_input"><%= form.number_field :space, step: :any %></p>
+    <p class="user_input"><%= form.number_field :space, step: :any, required: true %></p>
     
     <p class="user_label"><%= form.label :地域 %></p>
-    <p class="user_input"><%= form.text_field :area %></p>
+    <p class="user_input"><%= form.text_field :area, required: true %></p>
     
     <p class="user_label"><%= form.label :家賃 %></p>
-    <p class="user_input"><%= form.number_field :price, step: :any %></p>
+    <p class="user_input"><%= form.number_field :price, step: :any, required: true %></p>
     
     <p class="user_label"><%= form.label :所在地 %></p>
-    <p class="user_input"><%= form.text_field :address %></p>
+    <p class="user_input"><%= form.text_field :address, required: true %></p>
     
     <p class="user_label"><%= form.label :LDK %></p>
     <p class="user_input"><%= form.select :ldk,[["1R","1R"],["1K","1K"],["1DK","1DK"],["2LDK","2LDK"],["3LDK","3LDK"]] %></p>

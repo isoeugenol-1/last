@@ -1,6 +1,6 @@
 <center>
   <header>
-    <h1>Homes Edit/h1>
+    <h1>Homes Edit</h1>
   </header>
   <%= form_with(model: @home, local: true) do |form| %>
     <% if @home.errors.any? %>
@@ -15,31 +15,31 @@
     <% end %>
     
     <p class="user_label"><%= form.label :家名 %></p>
-    <p class="user_input"><%= form.text_field :home %></p>
+    <p class="user_input"><%= form.text_field :home, required: true %></p>
 
     <p class="user_label"><%= form.label :敷金 %></p>
-    <p class="user_input"><%= form.text_field :sikikinn %></p>
+    <p class="user_input"><%= form.text_field :sikikinn, required: true %></p>
 
     <p class="user_label"><%= form.label :礼金 %></p>
-    <p class="user_input"><%= form.text_field :reikinn %></p>
+    <p class="user_input"><%= form.text_field :reikinn, required: true %></p>
     
     <p class="user_label"><%= form.label :面積 %></p>
-    <p class="user_input"><%= form.text_field :space %></p>
+    <p class="user_input"><%= form.text_field :space, required: true %></p>
     
     <p class="user_label"><%= form.label :地域 %></p>
-    <p class="user_input"><%= form.text_field :area %></p>
+    <p class="user_input"><%= form.text_field :area, required: true %></p>
     
     <p class="user_label"><%= form.label :家賃 %></p>
-    <p class="user_input"><%= form.text_field :price %></p>
+    <p class="user_input"><%= form.text_field :price, required: true %></p>
     
     <p class="user_label"><%= form.label :所在地 %></p>
-    <p class="user_input"><%= form.text_field :address %></p>
+    <p class="user_input"><%= form.text_field :address, required: true %></p>
     
     <p class="user_label"><%= form.label :LDK %></p>
     <p class="user_input"><%= form.text_field :ldk %></p>
     
     <p class="user_label"><%= form.label :イメージ%></p>
-    <p class="user_image"><%= form.file_field :image %></p>
+    <p class="user_image"><%= form.file_field :image, multiple: true %></p>
 
     <p class="submit"><%= form.submit %></p>
   <% end %>

@@ -19,7 +19,6 @@ class HomesController < ApplicationController
   def create
     @home = Home.new(home_params)
     @home.user_id = current_user.id
-
     if @home.save
       redirect_to homes_path
     else
@@ -49,7 +48,7 @@ class HomesController < ApplicationController
   
   def confirm
     @home = Home.new(home_params)
-    if @home.title =="" || @home.content ==""
+    if @home.home =="" || @home.space =="" || @home.area =="" || @home.price =="" || @home.address ==""
       flash[:error] =  "内容を入力してください"
       redirect_to new_home_path
     end
@@ -80,7 +79,7 @@ class HomesController < ApplicationController
   private
   
   def home_params
-    params.require(:home).permit(:home, :sikikinn, :reikinn, :space, {image: []}, :area, :price, :address, :ldk,:@curuser,:latitude,:longitude)
+    params.require(:home).permit(:home, :sikikinn, :reikinn, :space, {:image => []}, :area, :price, :address, :ldk,:@curuser,:latitude,:longitude)
   end
   
   def set_home
