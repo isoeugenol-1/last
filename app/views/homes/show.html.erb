@@ -52,9 +52,9 @@
 
   <% unless @home.user_id == current_user.id %>
     <% if @favorite.present? %>
-      <div type="button" class="kiqbutton btn btn-danger"><%= link_to 'お気に入り解除', favorite_path(id: @favorite.id), method: :delete %></div>
+      <div type="button" class="kiqbutton btn btn-danger"><%= link_to 'お気に入り解除', favorite_path(id: @favorite.id), method: :delete,data: { disable_with: "please wait..." } %></div>
     <% else %>
-      <div type="button" class="kiqbutton btn btn-primary"><%= link_to 'お気に入りする', favorites_path(home_id: @home.id), method: :post %></div>
+      <div type="button" class="kiqbutton btn btn-primary"><%= link_to 'お気に入りする', favorites_path(home_id: @home.id), method: :post, data: { disable_with: "please wait..."  } %></div>
     <% end %>
     <div type="button" class="kiqbutton btn btn-default"><%= link_to "お問い合わせ", homes_sendqes_path(:sendid => @home.id) %></div>
   <% else %>
