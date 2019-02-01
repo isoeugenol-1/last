@@ -6,7 +6,7 @@ Geocoder.configure(
   
   # to use an API key:
   api_key: "AIzaSyCU9DDAnQryabSkK_satFrGNxt2HVIGYPw",
-  :http_proxy => ENV['QUOTAGUARD_URL'],
+  :use_https => true,
   # geocoding service request timeout, in seconds (default 3):
   timeout: 5,
 
