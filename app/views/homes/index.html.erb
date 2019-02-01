@@ -15,7 +15,13 @@
           <%= link_to  home_path(home.id), class: "item_list" do %>
             <div class="item col-md-4"><%= "不動産業者 : "+ home.user.name %></div>
             <div class="item col-md-4"><%= "物件名 : "+ home.home %></div>
-            <div class="item_image col-md-4"><%= image_tag(home.image.url) if home.image.present?  %></div>
+            <div class="item_image col-md-4">
+              <% if home.image[0].present? %>
+                <%= image_tag(home.image[0].url) %>
+              <% else %>
+                No Image
+              <% end %>
+            </div>
             <div class="item col-md-3"><%= "家賃 : " + home.price.to_s %></div>
             <div class="item col-md-5"><%= "住所 : " + home.address %></div>
           <% end %>
