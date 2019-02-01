@@ -55,11 +55,22 @@ class HomesController < ApplicationController
   end
   
   def sendmail
-    if params[:addresskm] = ""
+    if params[:addressto] == nil
       @home = Home.near(params[:addressto],5)
     else
-      @home = Home.near(params[:addressto],params[:addresskm]) 
+      if params[:addresskm] = ""
+        @home = Home.near(params[:addressto],5)
+        if @home.first == nil
+          flash[:error] =  "該当する物件がありませんでした"
+        end
+      else
+        @home = Home.near(params[:addressto],params[:addresskm]) 
+        if @home.first == nil
+          flash[:error] =  "該当する物件がありませんでした"
+        end
+      end 
     end
+
   end
   
   def send_mail 
