@@ -43,9 +43,7 @@
     <tr>
       <th>写真: </th>
       <td>
-        <%  @home.image.each do |image| %>
-        <%= image_tag(image.url) if image.present? %>
-        <% end %>
+        <%  @home.image.url if @home.image.present? %>
       </td>
     </tr>
   </table>
