@@ -1,40 +1,40 @@
 <%= search_form_for(@q, url:homes_path) do |f| %>
-  <div class="search_item">
+  <div class="search_item col-lg-offset-4 col-lg-6">
     <%= f.label :物件名 %>
     <%= f.text_field :home_cont %>
   </div>
   
-  <div class="search_item">
+  <div class="search_item col-lg-offset-4 col-lg-6">
     <%= f.label :家賃 %>
     <%= f.number_field :price_gteq , min: 0, placeholder: "最低" %>
   </div>
   
-  <div class="search_item">
+  <div class="search_item col-lg-offset-4 col-lg-6">
     <%= f.label :~ %>
     <%= f.number_field :price_lteq, min: 0, placeholder: "最高" %>
   </div>
   
-  <div class="search_item">
+  <div class="search_item col-lg-offset-4 col-lg-6">
     <%= f.label :面積 %>
     <%= f.number_field :space_gteq, min: 0, placeholder: "最低" %>
   </div>
   
-  <div class="search_item">
+  <div class="search_item col-lg-offset-4 col-lg-6">
     <%= f.label :~ %>
     <%= f.number_field :space_lteq, min: 0, placeholder: "最高" %>
   </div>
   
-  <div class="search_item">
+  <div class="search_item col-lg-offset-4 col-lg-6">
     <%= f.label :住所 %>
     <%= f.text_field :address_cont %>
   </div>
   
-  <div class="search_item">
+  <div class="search_item col-lg-offset-4 col-lg-6">
     <%= f.label :地域 %>
     <%= f.text_field :area_cont %>
   </div>
   
-  <div class="search_item">
+  <div class="search_item col-lg-offset-4 col-lg-6">
     <%= f.label :問取り %>
     <%= f.select :ldk_eq, options_for_select([['1R','1R'],['1K','1K'],['1DK','1DK'],['2LDK','2LDK'],['3LDK','3LDK']], @q.ldk) ,{include_blank: true},style: "width:174px" %>
   </div>
