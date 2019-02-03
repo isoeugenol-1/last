@@ -58,7 +58,7 @@ class HomesController < ApplicationController
     if params[:addressto] == nil
       @home = Home.near(params[:addressto],5)
     else
-      if params[:addresskm] = ""
+      if params[:addresskm] == ""
         @home = Home.near(params[:addressto],5)
         if @home.first == nil
           flash[:error] =  "該当する物件がありませんでした"
