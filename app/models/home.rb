@@ -11,6 +11,7 @@ class Home < ApplicationRecord
   has_many :favorite_users, through: :favorites, source: :user
   belongs_to :user
   mount_uploaders :image, ImageUploader
+  geocoded_by :addressto, skip_index: true
   geocoded_by :address, skip_index: true
   after_validation :geocode, :if => :address_changed?
 
