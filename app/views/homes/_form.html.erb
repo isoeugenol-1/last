@@ -40,7 +40,7 @@
 
     <p class="user_label"><%= form.label :イメージ%></p>
     <p class="user_image"><%= form.file_field :image, multiple: true %></p>
-
+    <%= form.hidden_field :image_cache %>
     <p class="submit"><%= form.submit %></p>
   <% end %>
 
