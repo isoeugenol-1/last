@@ -5,7 +5,7 @@ class HomesController < ApplicationController
   include ApplicationHelper
   def index
     @q = Home.search(params[:q])
-    @home = @q.result(distinct: true)
+    @home = @q.result
   end
   
   def new
@@ -90,7 +90,7 @@ class HomesController < ApplicationController
   private
   
   def home_params
-    params.require(:home).permit(:home, :sikikinn, :reikinn, :space, {:image => []}, :area, :price, :address, :ldk,:@curuser,:latitude,:longitude)
+    params.require(:home).permit(:home, :sikikinn, :reikinn, :space, {image: []}, :area, :price, :address, :ldk,:@curuser,:latitude,:longitude)
   end
   
   def set_home

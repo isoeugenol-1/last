@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     end
     
     if @user.save
-      redirect_to homes_path
+      redirect_to new_session_path
     else
       render 'index'
     end

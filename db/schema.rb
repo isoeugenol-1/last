@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 20190125124549) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.text "image", default: [], array: true
     t.float "latitude"
     t.float "longitude"
+    t.json "image"
     t.index ["address"], name: "index_homes_on_address", unique: true
     t.index ["user_id"], name: "index_homes_on_user_id"
   end
