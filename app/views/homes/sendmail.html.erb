@@ -8,13 +8,15 @@
     <% end %>
   </div>
   <%= form_tag homes_sendmail_path, method: :get do %>
+  
   <div>
-    <p class="user_label">KM</p>
-    <p class="user_input"><%= number_field_tag :addresskm ,min: 0 %></p>
+    <p class="user_label">勤務先の住所</p>
+    <p class="user_input"><%= text_field_tag :addressto,"", required: true ,size: 40 %></p>
   </div>
+  
   <div>
-    <p class="user_label">住所</p>
-    <p class="user_input"><%= text_field_tag :addressto,"", required: true  %></p>
+    <p class="user_label">検索範囲(km)</p>
+    <p class="user_input"><%= number_field_tag :addresskm ,nil,min: 1, placeholder: "空欄なら5km" %></p>
   </div>
   <%= submit_tag '検索' %>
   <% end %>
