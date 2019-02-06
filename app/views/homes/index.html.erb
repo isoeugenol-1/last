@@ -10,7 +10,7 @@
   <div class="col-md-12 col-lg-12">
     <aticle class="col-md-8 col-lg-8">
       <div class="row">
-        <% @home.each do |home| %>
+        <% @home.reverse.each do |home| %>
         <div type="button" class="home_list btn btn-default col-md-9 col-md-offset-1 col-lg-9 col-lg-offset-1">
           <%= link_to  home_path(home.id), class: "item_list" do %>
             <div class="item col-md-4 col-lg-4"><%= "不動産業者 : "+ home.user.name %></div>
