@@ -33,8 +33,8 @@
     </tr>
     <tr>
       <th>住所: </th>
-      <td><%= @home.address %></td>
-      <td class="blackcolor"><%= button_to '地図から確認', 'https://www.google.com/maps/place/'+@home.address, method: :get,form: {target: '_blank'} %></td>
+      <td><%= @home.country %><%= @home.state %><%= @home.city %><%= @home.address %></td>
+      <td class="blackcolor"><%= button_to '地図から確認', 'https://www.google.com/maps/place/'+ @home.country+ @home.state+ @home.city+ @home.address, method: :get,form: {target: '_blank'} %></td>
     </tr>
     <tr>
       <th>問取り: </th>
