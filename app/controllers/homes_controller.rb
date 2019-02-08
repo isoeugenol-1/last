@@ -26,8 +26,7 @@ class HomesController < ApplicationController
     end
   end
   
-  def edit
-  end
+  def edit;  end
   
   def show
     @favorite = current_user.favorites.find_by(home_id: @home.id)
@@ -70,12 +69,10 @@ class HomesController < ApplicationController
         end
       end 
     end
-
   end
   
   def send_mail 
     @home = Home.near(params[:addressto],5) 
-    #"渋谷、東京"
     #ContactMailer.contact_mail(current_user,@homes,params[:title],params[:content]).deliver
     redirect_to homes_send_mail_path
   end
@@ -84,7 +81,6 @@ class HomesController < ApplicationController
     @homes = Home.find(params[:sendid])
     #@homes = params[:post_id]
     #ContactMailer.contact_mail(current_user,@homes,params[:title],params[:content]).deliver
-    
   end
   
   private
