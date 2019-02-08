@@ -3,11 +3,15 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   @@admin_check = false
   def index
-    @user = User.new
-    if params[:ad].present?
-      @@admin_check = true
+    if logged_in?
+      redirect_to homes_path
     else
-      @@admin_check = false
+      @user = User.new
+      if params[:ad].present?
+        @@admin_check = true
+      else
+        @@admin_check = false
+      end
     end
   end
   

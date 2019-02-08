@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
+  include ApplicationHelper
   def new
+    if logged_in?
+      redirect_to homes_path, notice: "もうログインしました。"
+    end
   end
   
   def create
