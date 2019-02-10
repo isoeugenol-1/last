@@ -9,6 +9,6 @@ class Address < ApplicationRecord
   acts_as_mappable
   geocoded_by :full_address, skip_index: true
   def full_address
-    "#{address}, #{city}, #{state}, #{country}"
+    "#{country},#{state}, #{city},#{address}"
   end
 end
