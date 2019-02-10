@@ -32,15 +32,20 @@
     <p class="user_label"><%= form.label :家賃 %></p>
     <p class="user_input"><%= form.number_field :price,min:0,  step: :any, required: true %></p>
     
-    <p class="user_label"><%= form.label :所在地 %></p>
-    <p class="user_input"><%= form.text_field :country ,placeholder: "国"%><%= form.text_field :state,placeholder: "都道府県" %><%= form.text_field :city,placeholder: "市町村" %><%= form.text_field :address, required: true,placeholder: "その他" %></p>
-    
     <p class="user_label"><%= form.label :LDK %></p>
     <p class="user_input"><%= form.select :ldk,[["1R","1R"],["1K","1K"],["1DK","1DK"],["2LDK","2LDK"],["3LDK","3LDK"]] %></p>
 
     <p class="user_label"><%= form.label :イメージ%></p>
     <p class="user_image"><%= form.file_field :image, multiple: true %></p>
     <%= form.hidden_field :image_cache %>
+    
+    <p class="user_label"><%= form.label :所在地 %></p>
+    <p class="user_input">
+      <%= form.fields_for :address do |ff| %>
+        <p class="user_input"><%= ff.text_field :country,placeholder: "国" %><%= ff.text_field :state,placeholder: "都道府県"  %><%= ff.text_field :city,placeholder: "市町村"  %><%= ff.text_field :address,placeholder: "その他"  %></p>
+      <% end %>
+    </p>
+    
     <p class="submit"><%= form.submit %></p>
   <% end %>
 

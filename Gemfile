@@ -62,3 +62,4 @@ gem 'geokit-rails'
 gem 'geocoder'
 gem "gmaps4rails"
 gem 'geokit'
+gem 'nested_form_fields'

@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190208113320) do
+ActiveRecord::Schema.define(version: 20190210034107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "country"
+    t.string "state"
+    t.string "city"
+    t.string "address"
+    t.string "postcode"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "home_id"
+    t.index ["home_id"], name: "index_addresses_on_home_id"
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -29,19 +43,11 @@ ActiveRecord::Schema.define(version: 20190208113320) do
     t.decimal "space"
     t.text "area"
     t.decimal "price"
-    t.text "address"
     t.text "ldk"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.float "latitude"
-    t.float "longitude"
     t.json "image"
-    t.string "city"
-    t.string "state"
-    t.string "country"
-    t.string "postcode"
-    t.index ["address"], name: "index_homes_on_address", unique: true
     t.index ["user_id"], name: "index_homes_on_user_id"
   end
 
@@ -56,5 +62,6 @@ ActiveRecord::Schema.define(version: 20190208113320) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "addresses", "homes"
   add_foreign_key "homes", "users"
 end

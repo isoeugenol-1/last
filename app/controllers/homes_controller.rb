@@ -4,15 +4,17 @@ class HomesController < ApplicationController
   before_action :current_check, only: [:destroy, :edit, :update]
   include ApplicationHelper
   def index
-    @q = Home.search(params[:q])
-    @home = @q.result
+    @q = Home.ransack(params[:q])
+    @home = @q.result.includes(:address)
   end
   
   def new
     if params[:back]
       @home = Home.new(home_params)
+      @home.build_address
     else
       @home = Home.new
+      @home.build_address
     end
   end
   
@@ -33,6 +35,7 @@ class HomesController < ApplicationController
   end
   
   def destroy
+    @home.address.destroy
     @home.destroy
     redirect_to homes_path
   end
@@ -54,16 +57,16 @@ class HomesController < ApplicationController
   end
   
   def sendmail
-    if params[:addressto] == nil
-      @home = Home.near(params[:addressto],5)
+    if params[:full_address] == nil
+      @home = Address.near(params[:full_address],5)
     else
       if params[:addresskm] == ""
-        @home = Home.near(params[:addressto],5)
+        @home = Address.near(params[:full_address],5)
         if @home.first == nil
           flash[:error] =  "該当する物件がありませんでした"
         end
       else
-        @home = Home.near(params[:addressto],params[:addresskm]) 
+        @home = Address.near(params[:full_address],params[:addresskm]) 
         if @home.first == nil
           flash[:error] =  "該当する物件がありませんでした"
         end
@@ -86,7 +89,11 @@ class HomesController < ApplicationController
   private
   
   def home_params
-    params.require(:home).permit(:home, :sikikinn, :reikinn, :space, {image: []},:image_cache, :area, :price,:country,:state,:city,:postcode, :address, :ldk,:@curuser,:latitude,:longitude)
+    params.require(:home).permit(:home, :sikikinn, :reikinn, :space, {image: []},:image_cache, :area, :price,:ldk,:@curuser,address_attributes: [:id,:country, :state,:city,:address,:postcode,:latitude,:longitude,:_destroy])
+  end
+  
+  def address_params
+    params.permit(:country, :state,:city,:address,:postcode,:latitude,:longitude,:@hoid)
   end
   
   def set_home

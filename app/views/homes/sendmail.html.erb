@@ -11,7 +11,7 @@
   
   <div>
     <p class="user_label">勤務先の住所</p>
-    <p class="user_input"><%= text_field_tag :addressto,"", required: true ,size: 40 %></p>
+    <p class="user_input"><%= text_field_tag :full_address,"", required: true ,size: 40 %></p>
   </div>
   
   <div>
@@ -24,18 +24,18 @@
     <div class="row">
       <% for home in @home %>
         <div type="button" class="home_list btn btn-default col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-          <%= link_to  home_path(home.id), class: "item_list" do %>
-            <div class="item col-md-4"><%= "不動産業者 : "+ home.user.name %></div>
-            <div class="item col-md-4"><%= "物件名 : "+ home.home %></div>
+          <%= link_to  home_path(home.home.id), class: "item_list" do %>
+            <div class="item col-md-4 col-lg-4"><%= "不動産業者 : "+ home.home.user.name %></div>
+            <div class="item col-md-4 col-lg-4"><%= "物件名 : "+ home.home.home %></div>
             <div class="item_image col-md-4 col-lg-4">
-              <% if home.image[0].present? %>
-                <%= image_tag(home.image[0].url) %>
+              <% if home.home.image[0].present? %>
+                <%= image_tag(home.home.image[0].url) %>
               <% else %>
                 No Image
               <% end %>
             </div>
-            <div class="item col-md-3 col-lg-3"><%= "家賃 : " + home.price.to_s %></div>
-            <div class="item col-md-5 col-lg-5"><%= "住所 : " + home.country + home.state + home.city + home.address %></div>
+            <div class="item col-md-3 col-lg-3"><%= "家賃 : " + home.home.price.to_s %></div>
+            <div class="item col-md-3 col-lg-3"><%= "住所 : " + home.country + home.state+ home.city+ home.address %></div>
           <% end %>
         </div>
       <% end %>

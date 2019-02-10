@@ -2,20 +2,23 @@
   <header>
     <h1>Homes 投稿確認</h1>
   </header>
-  <%= form_with(model: @home, url: homes_path, local: true) do |form| %>
+  <%= form_with(model:  @home, url: homes_path, local: true) do |form| %>
     <%= form.hidden_field :home %>
     <%= form.hidden_field :sikikinn %>
     <%= form.hidden_field :reikinn %>
     <%= form.hidden_field :space %>
     <%= form.hidden_field :area %>
     <%= form.hidden_field :price %>
-    <%= form.hidden_field :country %>
-    <%= form.hidden_field :state %>
-    <%= form.hidden_field :city %>
-    <%= form.hidden_field :address %>
     <%= form.hidden_field :ldk %>
-    
     <%= form.hidden_field :image_cache %>
+    <%= form.fields_for :address do |ff| %>
+      <%= ff.hidden_field :country %>
+      <%= ff.hidden_field :state %>
+      <%= ff.hidden_field :city %>
+      <%= ff.hidden_field :address %>
+    <% end %>
+
+    
 
     <table>
     <tr class="tr">
@@ -48,8 +51,9 @@
     </tr>
     <tr>
       <th>住所: </th>
-      <td><%= @home.country %><%= @home.state %><%= @home.city %><%= @home.address %></td>
-      <!--<td class="blackcolor"><%= button_to '地図から確認', 'https://www.google.com/maps/place/'+@home.country+@home.state+@home.city+@home.address, method: :get,form: {target: '_blank'} %></td>-->
+      <td>
+        <%= @home.address.country %><%= @home.address.state %><%= @home.address.city %><%= @home.address.address %>
+      </td>
     </tr>
     <tr>
       <th>問取り: </th>
@@ -76,10 +80,12 @@
     <%= form.hidden_field :space %>
     <%= form.hidden_field :area %>
     <%= form.hidden_field :price %>
-    <%= form.hidden_field :country %>
-    <%= form.hidden_field :state %>
-    <%= form.hidden_field :city %>
-    <%= form.hidden_field :address %>
+    <%= form.fields_for :address do |ff| %>
+      <%= ff.hidden_field :country %>
+      <%= ff.hidden_field :state %>
+      <%= ff.hidden_field :city %>
+      <%= ff.hidden_field :address %>
+    <% end %>
     <%= form.hidden_field :image_cache %>
 
     <%= form.hidden_field :ldk %>
